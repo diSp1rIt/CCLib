@@ -29,8 +29,8 @@ term.write("/")
 
 local options = {"Update CCGUI"}
 
-local funtion render_main()
-    for i = 0, __len(options) do
+-- local funtion render_main()
+--     for i = 0, __len(options) do
         
-    end
-end
+--     end
+-- end
