@@ -1,6 +1,6 @@
 -- preparing screen
 term.clear()
-width, height = term.getSize()
+local width, height = term.getSize()
 term.setCursorPos(1, 1)
 
 term.write("/")
@@ -18,6 +18,7 @@ for i = 2, height do
     term.write("|")
 end
 
+term.setCursorPos(1, height)
 term.write("\\")
 for i = 2, width do
     term.setCursorPos(i, height)
@@ -25,3 +26,11 @@ for i = 2, width do
 end
 term.setCursorPos(width, height)
 term.write("/")
+
+local options = {"Update CCGUI"}
+
+local funtion render_main()
+    for i = 0, __len(options) do
+        
+    end
+end
