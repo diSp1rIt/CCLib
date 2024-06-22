@@ -10,11 +10,12 @@ local function check()
             print("[-] Missing update command")
             err = 1
         else
+            io.close(file)
             print("[+] Update exists")
         end
     end
 
-    if not err
+    if not err then
         term.clear()
     end
 end
