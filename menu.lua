@@ -29,11 +29,11 @@ local function border()
     term.write("/")
 end
 
-local function check() {
+local function check() 
     term.setCursorPos(2, 2)
     print("test 1")
     print("test 2")
-}
+end
 
 term.clear()
 border()
