@@ -1,42 +1,25 @@
--- preparing screen
+local function check()
+    local nescessary_libs = {"update.lua"}
+    local err
 
-local function border()
-    local width, height = term.getSize()
-    term.setCursorPos(1, 1)
+    shell.run("mkdir commands")
 
-    term.write("/")
-    for i = 2, width do
-        term.setCursorPos(i, 1)
-        term.write("-")
-    end
-    term.setCursorPos(width, 1)
-    term.write("\\")
-
-    for i = 2, height do
-        term.setCursorPos(1, i)
-        term.write("|")
-        term.setCursorPos(width, i)
-        term.write("|")
+    for _, lib in pairs(nescessary_libs) do
+        local file, err = io.open('commands/update.lua')
+        if not file then
+            print("[-] Missing update command")
+            err = 1
+        else
+            print("[+] Update exists")
+        end
     end
 
-    term.setCursorPos(1, height)
-    term.write("\\")
-    for i = 2, width do
-        term.setCursorPos(i, height)
-        term.write("-")
+    if not err
+        term.clear()
     end
-    term.setCursorPos(width, height)
-    term.write("/")
-end
-
-local function check() 
-    term.setCursorPos(2, 2)
-    print("test 1")
-    print("test 2")
 end
 
 term.clear()
-border()
 check()
 
 -- local options = {"Update CCGUI" = "update.lua"}
