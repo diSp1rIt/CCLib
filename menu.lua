@@ -11,12 +11,12 @@ local function check()
         if not file then
             print("[-] Missing update command")
             print("[ ] Starting download")
-            local file, err = io.open("command/".. lib, "w")
+            local file, err = io.open("commands/".. lib, "w")
             if err then
                 print("Couldn't open file")
             else
-                local res = http.get(repository .. "command/update.lua") 
-                file.write(res.readAll())
+                local res = http.get(repository .. "commands/update.lua") 
+                file:write(res.readAll())
                 io.close(file)
                 print("[+] Update command downloaded successfully")
             end
