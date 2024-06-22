@@ -1,23 +1,29 @@
+local repository = "https://raw.githubusercontent.com/diSp1rIt/CCLib/main/"
+
 local function check()
     term.setCursorPos(1, 1)
     local nescessary_libs = {"update.lua"}
-    local err = 0
 
     shell.run("mkdir commands")
 
     for _, lib  in pairs(nescessary_libs) do
-        local file, err = io.open("commands/" .. lib)
+        local file, err = io.open("commands/" .. lib, "r")
         if not file then
             print("[-] Missing update command")
-            err = 1
+            print("[ ] Starting download")
+            local file, err = io.open("command/".. lib, "w")
+            if err then
+                print("Couldn't open file")
+            else
+                local res = http.get(repository .. "command/update.lua") 
+                file.write(res.readAll())
+                io.close(file)
+                print("[+] Update command downloaded successfully")
+            end
         else
             io.close(file)
             print("[+] Update exists")
         end
-    end
-
-    if not err then
-        term.clear()
     end
 end
 
