@@ -1,11 +1,11 @@
 local function check()
     local nescessary_libs = {"update.lua"}
-    local err
+    local err = 0
 
     shell.run("mkdir commands")
 
-    for _, lib in pairs(nescessary_libs) do
-        local file, err = io.open('commands/update.lua')
+    for _, lib  in pairs(nescessary_libs) do
+        local file, err = io.open("commands/" .. lib)
         if not file then
             print("[-] Missing update command")
             err = 1
