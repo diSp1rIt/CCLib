@@ -37,6 +37,7 @@ end
 
 term.clear()
 border()
+check()
 
 -- local options = {"Update CCGUI" = "update.lua"}
 
