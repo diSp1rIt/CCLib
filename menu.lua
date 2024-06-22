@@ -1,4 +1,5 @@
 local function check()
+    term.setCusrorPos(1, 1)
     local nescessary_libs = {"update.lua"}
     local err = 0
 
